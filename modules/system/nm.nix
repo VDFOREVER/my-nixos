@@ -1,0 +1,3 @@
+{
+	networking.dhcpcd.enable = true;
+}
