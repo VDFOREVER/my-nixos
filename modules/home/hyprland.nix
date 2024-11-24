@@ -17,7 +17,6 @@
 				"waybar"
 				"hypridle"
 				"hyprpaper"
-				"nekoray"
 				"telegram-desktop"
 				"systemctl start --user polkit-gnome-authentication-agent-1"
 			];
@@ -25,7 +24,6 @@
 			env = [
 				"env = HYPRCURSOR_THEME,capitaine-cursors"
 				"env = HYPRCURSOR_SIZE,24"
-				"env = QT_STYLE_OVERRIDE,kvantum"
 				"env = XDG_CURRENT_DESKTOP,Hyprland"
 				"env = XDG_SESSION_TYPE,wayland"
 				"env = XDG_SESSION_DESKTOP,Hyprland"
@@ -61,10 +59,12 @@
 					passes = 1;
 				};
 
-				drop_shadow = true;
-				shadow_range = 4;
-				shadow_render_power = 3;
-				"col.shadow" = "rgba(1a1a1aee)";
+				shadow = {
+					enabled = true;
+					range = 4;
+					render_power = 3;
+					color = "rgba(1a1a1aee)";
+				};
 			};
 
 			animations = {

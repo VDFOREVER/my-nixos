@@ -10,5 +10,7 @@
 		./steam.nix
 		./gpg.nix
 		./xdg.nix
+		./amd.nix
+		./singbox.nix
 	];
 }

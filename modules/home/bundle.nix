@@ -10,5 +10,8 @@
 		./themes.nix
 		./mako.nix
 		./vscode.nix
+		./firefox.nix
+		./hyprlock.nix
+		./hypridle.nix
 	];
 }

@@ -25,8 +25,7 @@
     };
 
     qt = {
-        enable = false;
-        style.name = "adwaita-dark";
-        platformTheme.name = "gtk3";
+        enable = true;
+        platformTheme.name = "gtk"; 
     };
 }

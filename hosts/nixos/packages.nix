@@ -8,22 +8,17 @@
 		telegram-desktop
 		alacritty
 		obs-studio
-		wofi
 		mpv
-		cinnamon.nemo		
+		nemo		
 		nekoray	
 		vscode
 		pass
 		steam
 		prismlauncher
-		gnome.file-roller
-		
-		gcc
-		cmake
-		openssl
-		zlib
-		opencv
-		boost
+		file-roller
+		transmission_4-gtk
+
+		python3
 		
 		fastfetch
 		wget
@@ -37,11 +32,13 @@
 		xwayland
 		seatd
 		hyprland
+		wofi
 		waybar
 		hypridle
 		hyprpaper
 		hyprpicker
 		hyprcursor
+		hyprlock
 
 		pipewire
 
