@@ -1,9 +1,39 @@
 { pkgs ? import <nixpkgs> {} }:
 pkgs.mkShell {
-  packages = with pkgs; [ gcc cmake];
-  buildInputs =  with pkgs; [ openssl zlib boost opencv];
+  buildInputs = with pkgs; [
+    gcc
+    bullet
+    openssl
+    zlib
+    boost
+    glfw-wayland
+    opencv
+    cmake
+    wayland
+    libxkbcommon
+    wayland-scanner
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXinerama
+  ];
+
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+
+  LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
+    wayland
+    libxkbcommon
+    wayland-scanner
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXinerama
+  ]);
 
   shellHook = ''
-    echo "Welcome to the C++ build environment!"
+      export CC=${pkgs.gcc}/bin/gcc
+      export CXX=${pkgs.gcc}/bin/g++
   '';
 }

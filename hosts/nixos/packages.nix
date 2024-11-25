@@ -1,7 +1,5 @@
 { pkgs, ... }: {
-	nixpkgs.config = {
-		allowUnfree = true;
-	};
+	nixpkgs.config.allowUnfree = true;
 	
 	environment.systemPackages = with pkgs; [
 		firefox
@@ -9,8 +7,7 @@
 		alacritty
 		obs-studio
 		mpv
-		nemo		
-		nekoray	
+		nemo
 		vscode
 		pass
 		steam
@@ -24,33 +21,10 @@
 		wget
 		git
 		htop
-		libnotify
 
-		mako
-		xwayland
-		wl-clipboard
-		xwayland
-		seatd
-		hyprland
-		wofi
-		waybar
-		hypridle
-		hyprpaper
-		hyprpicker
-		hyprcursor
-		hyprlock
-
-		pipewire
-
-		amdvlk
-
-		grim
-		grimblast
-		slurp
-		swappy
-		sing-box
 		pavucontrol
-		jq # waybar weather
+		sing-box
+
 		home-manager
 	];
 

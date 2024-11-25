@@ -1,4 +1,35 @@
-{
+{pkgs, ...}: {
+    xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+        config.common.default = "*";
+    };
+
+    systemd.user.services.polkit_gnome = {
+      Install = {
+        WantedBy = [ "hyprland-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "always";
+      };
+    };
+
+	home.packages = with pkgs; [
+		hypridle
+		hyprpaper
+		hyprpicker
+		hyprcursor
+		hyprlock
+		grim
+		grimblast
+		slurp
+		swappy
+		mako
+		libnotify
+		wl-clipboard
+	];
+
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;

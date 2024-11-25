@@ -1,82 +1,86 @@
-{
-    programs.waybar = {
-        enable = true;
-        settings = {
-            mainr = {
-                position = "bottom";
-                margin-bottom = 5;
-                spacing = 0;
-                height =  27;
-	            width = 900;
+{pkgs, ...}: {
+	home.packages = with pkgs; [
+		jq # waybar weather
+	];
 
-                modules-left = ["custom/weather" "custom/pick" "custom/lock" "custom/poweroff"];
-                modules-center = ["hyprland/workspaces"];
-                modules-right = ["tray" "pulseaudio" "hyprland/language" "clock"];
+	programs.waybar = {
+		enable = true;
+		settings = {
+			mainr = {
+				position = "bottom";
+				margin-bottom = 5;
+				spacing = 0;
+				height =  27;
+				width = 900;
 
-                "custom/weather" = {
-                    format = "󰖞 {}";
-                    interval = 300;
-                    exec = "~/nix/other/weather.sh";
-                    tooltip = false;
-                };
+				modules-left = ["custom/weather" "custom/pick" "custom/lock" "custom/poweroff"];
+				modules-center = ["hyprland/workspaces"];
+				modules-right = ["tray" "pulseaudio" "hyprland/language" "clock"];
 
-                "custom/pick" = {
-                    format = "󰈊";
-                    on-click = "wl-copy $(hyprpicker)";
-                    tooltip = false;
-                };
+				"custom/weather" = {
+					format = "󰖞 {}";
+					interval = 300;
+					exec = "~/nix/other/weather.sh";
+					tooltip = false;
+				};
 
-                "custom/lock" = {
-                    format = "󰌋";
-                    on-click = "hyprlock";
-                    tooltip = false;
-                };
+				"custom/pick" = {
+					format = "󰈊";
+					on-click = "wl-copy $(hyprpicker)";
+					tooltip = false;
+				};
 
-                "custom/poweroff" = {
-                    format = "⏻";
-                    on-click = "loginctl poweroff";
-                    tooltip = false;
-                };
+				"custom/lock" = {
+					format = "󰌋";
+					on-click = "hyprlock";
+					tooltip = false;
+				};
 
-                "hyprland/workspaces" = {
-                    format = "{icon}";
-                    on-click = "activate";
-                    tooltip = false;
-                    all-outputs = true;
-                };
+				"custom/poweroff" = {
+					format = "⏻";
+					on-click = "shutdown now";
+					tooltip = false;
+				};
 
-                "tray" = {
-                    icon-size = 14;
-                    spacing = 15;
-                };
+				"hyprland/workspaces" = {
+					format = "{icon}";
+					on-click = "activate";
+					tooltip = false;
+					all-outputs = true;
+				};
 
-                "pulseaudio" = {
-                    scroll-step = 5;
-                    format = "{icon}{volume}%";
-                    format-icons = {
+				"tray" = {
+					icon-size = 14;
+					spacing = 15;
+				};
+
+				"pulseaudio" = {
+					scroll-step = 5;
+					format = "{icon}{volume}%";
+					format-icons = {
 						"default" = [" " " " " "];
 					};
-                    on-click = "pavucontrol";
-                };
+					on-click = "pavucontrol";
+				};
 
-                "hyprland/language" = {
-                    format = "{}";
-                    format-en = "EN";
-                    format-ru = "RU";
-                };
-                
-                "clock" = {
-                    tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-                    format-alt = "{:%Y-%m-%d}";
-                };
+				"hyprland/language" = {
+					format = "{}";
+					format-en = "EN";
+					format-ru = "RU";
+				};
+				
+				"clock" = {
+					tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+					format-alt = "{:%Y-%m-%d}";
+				};
 
-                escape = true;
-               # };
-            };
-        };
+				escape = true;
+			# };
+			};
+		};
 
-        style = 
-      ''
+		style = 
+	''
 * {
 	font-family: JetBrainsMono, SymbolsNerdFont;
 	font-weight: bold;
@@ -107,7 +111,7 @@ window#waybar {
 #custom-pick {
 	background: @black;
 	color: @fg;
-  	padding: 0;
+	padding: 0;
 	margin: 4px 0 4px 0;
 	border-radius: 0;
 }
@@ -120,9 +124,9 @@ window#waybar {
 #custom-poweroff {
 	background: @black;
 	color: @fg;
-  	padding: 0 10px 0 5px;
+	padding: 0 10px 0 5px;
 	margin: 4px 0 4px 0;
-  	border-radius: 0 6 6 0;
+	border-radius: 0 6 6 0;
 }
 
 #workspaces {
@@ -194,6 +198,6 @@ window#waybar {
 	border-radius: 0 6 6 0;
 	font-size: 14px;
 }
-      '';
-    };
+	'';
+	};
 }

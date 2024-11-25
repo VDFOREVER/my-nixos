@@ -1,12 +1,9 @@
 {
 	imports = [
-		../../modules/home/bundle.nix
+		../../modules/home
 	];
 
-	nixpkgs.config = {
-    	allowUnfree = true;
-    	allowUnfreePredicate = (_: true);
-  	};
+	nixpkgs.config.allowUnfree = true;
 
 	home = {
 		username = "svd";
