@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
+
     xdg.portal = {
         enable = true;
         extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
@@ -33,6 +34,7 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
+		package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
 		settings = {
 			"$mainMod" = "L_ALT";

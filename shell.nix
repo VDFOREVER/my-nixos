@@ -17,6 +17,7 @@ pkgs.mkShell {
     xorg.libXcursor
     xorg.libXi
     xorg.libXinerama
+    qt6.full
   ];
 
   nativeBuildInputs = with pkgs; [ pkg-config ];

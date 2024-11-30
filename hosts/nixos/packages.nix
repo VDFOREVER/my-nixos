@@ -14,6 +14,10 @@
 		prismlauncher
 		file-roller
 		transmission_4-gtk
+		filezilla
+		wineWowPackages.waylandFull
+		baobab
+		gimp
 
 		python3
 		
@@ -32,6 +36,6 @@
 		jetbrains-mono
 		noto-fonts
 		noto-fonts-emoji
-		(nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+		nerd-fonts.symbols-only
 	];
 }
