@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}: {
+{pkgs, ...}: {
 
     xdg.portal = {
         enable = true;
@@ -34,7 +34,6 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-		package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
 		settings = {
 			"$mainMod" = "L_ALT";
@@ -51,7 +50,6 @@
 				"hypridle"
 				"hyprpaper"
 				"telegram-desktop"
-				"systemctl start --user polkit-gnome-authentication-agent-1"
 			];
 
 			env = [

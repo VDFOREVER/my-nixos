@@ -17,8 +17,7 @@
 		filezilla
 		wineWowPackages.waylandFull
 		baobab
-		gimp
-
+		
 		python3
 		
 		fastfetch

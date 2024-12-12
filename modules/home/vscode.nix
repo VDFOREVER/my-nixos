@@ -4,6 +4,7 @@
         extensions = with pkgs.vscode-extensions; [
             ms-vscode.cmake-tools
             ms-vscode.cpptools
+            twxs.cmake
             pkief.material-icon-theme
             bbenoist.nix
             enkia.tokyo-night
