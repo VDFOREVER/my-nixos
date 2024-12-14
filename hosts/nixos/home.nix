@@ -24,6 +24,7 @@
 	waybar.enable = true;
 	theming.enable = true;
 	git.enable = true;
+	fish.enable = true;
 
 	home = {
 		username = "svd";
