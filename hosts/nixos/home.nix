@@ -12,6 +12,7 @@
 		hypridle = true;
 		wofi = true;
 		mako = true;
+		alacritty = true;
 	};
 
 	vscode = {
