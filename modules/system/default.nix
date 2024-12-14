@@ -1,7 +1,6 @@
 {
 	imports = [
-		./user.nix
-		./sound.nix
+		./vm.nix
 		./gc.nix
 		./amd.nix
 		./singbox.nix

@@ -15,8 +15,9 @@
 		file-roller
 		transmission_4-gtk
 		filezilla
-		wineWowPackages.waylandFull
+		#wineWowPackages.waylandFull
 		baobab
+		brightnessctl
 		
 		python3
 		

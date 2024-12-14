@@ -1,14 +1,25 @@
+{config, lib, ...}:
+with lib;
+let
+  cfg = config.fish;
+in
 {
-    programs.fish = {
-        enable = true;
-            interactiveShellInit = ''
-                set fish_greeting # Disable greeting
+    options.fish = {
+        enable = mkEnableOption "Enable fish shell";
+    };
 
-                if status is-login
-                    if test (tty) = /dev/tty1
-                        dbus-run-session Hyprland
+    config = mkIf cfg.enable {
+        programs.fish = {
+            enable = true;
+                interactiveShellInit = ''
+                    set fish_greeting # Disable greeting
+
+                    if status is-login
+                        if test (tty) = /dev/tty1
+                            dbus-run-session Hyprland
+                        end
                     end
-                end
-            '';
+                '';
+        };
     };
 }

@@ -18,9 +18,16 @@
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
 		in {
-			nixosConfigurations.nixos = nixpkgs.lib.nixosSystem { 
-				inherit system;
-				modules = [./hosts/nixos/configuration.nix];
+			nixosConfigurations = {
+				nixos = nixpkgs.lib.nixosSystem { 
+					inherit system;
+					modules = [./hosts/nixos/configuration.nix];
+				};
+
+				notebook = nixpkgs.lib.nixosSystem {
+					inherit system;
+					modules = [./hosts/notebook/configuration.nix];
+				};
 			};
 
 			homeConfigurations.svd = home-manager.lib.homeManagerConfiguration {	

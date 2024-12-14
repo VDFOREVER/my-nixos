@@ -8,9 +8,9 @@
     singbox.enable = true;
     amdgpu.enable = true;
     gc.enable = true;
-    vm.enable = true;
+    vm.enable = false;
 
-    networking.dhcpcd.enable = true;
+    networking.networkmanager.enable = true;
     zramSwap.enable = true;
     documentation.nixos.enable = false;
 
