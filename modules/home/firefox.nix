@@ -11,6 +11,7 @@ in
     config = mkIf cfg.enable {
         programs.firefox = {
             enable = true;
+            package = pkgs.firefox-bin;
             profiles.svd = {
                 extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
                     ublock-origin
