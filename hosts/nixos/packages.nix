@@ -36,6 +36,6 @@
 		jetbrains-mono
 		noto-fonts
 		noto-fonts-emoji
-		nerd-fonts.symbols-only
+		(nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 	];
 }

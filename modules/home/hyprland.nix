@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, ...}: 
+{config, pkgs, lib, ...}: 
 with lib;
 let
   cfg = config.hyprland;
@@ -289,7 +289,6 @@ in
 		wayland.windowManager.hyprland = {
 			enable = true;
 			xwayland.enable = true;
-			package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
 			settings = {
 				"$mainMod" = "L_ALT";

@@ -1,9 +1,9 @@
 {
 	description = "sadfasfsaf";
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 		home-manager = {
-			url = "github:nix-community/home-manager";
+			url = "github:nix-community/home-manager/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -11,15 +11,9 @@
 			url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		hyprland = {
-			type = "git";
-			url = "https://github.com/hyprwm/Hyprland";
-			submodules = true;
-		};
 	};
 	
-	outputs = { nixpkgs, home-manager, hyprland, ... }@inputs:
+	outputs = { nixpkgs, home-manager, ... }@inputs:
 		let 
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
