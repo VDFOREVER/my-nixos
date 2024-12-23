@@ -21,6 +21,12 @@ pkgs.mkShell {
     qt6.full
   ];
 
+    packages = [
+      (pkgs.python3.withPackages (python-pkgs: [
+          python-pkgs.requests
+      ]))
+    ];
+
   nativeBuildInputs = with pkgs; [ pkg-config ];
 
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [

@@ -1,13 +1,17 @@
-{ pkgs, ... }: {
-	nixpkgs.config.allowUnfree = true;
-	
+{ pkgs, inputs, ... }: {
+	nixpkgs.config = {
+		allowUnfree = true;
+		permittedInsecurePackages = [
+			"olm-3.2.16"
+		];	
+	};
+
 	environment.systemPackages = with pkgs; [
 		telegram-desktop
 		alacritty
 		obs-studio
 		mpv
 		nemo
-		vscode
 		pass
 		steam
 		prismlauncher
@@ -16,9 +20,9 @@
 		filezilla
 		wineWowPackages.waylandFull
 		baobab
-		
-		python3
-		
+		vscode
+		nheko
+
 		fastfetch
 		wget
 		git

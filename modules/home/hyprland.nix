@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}: 
+{config, pkgs, lib, inputs, ...}: 
 with lib;
 let
   cfg = config.hyprland;
@@ -23,11 +23,12 @@ in
 
 		systemd.user.services.polkit_gnome = {
 			Install = {
-				WantedBy = [ "hyprland-session.target" ];
+				WantedBy = [ "graphical-session.target" ];
 			};
 			Service = {
+				Type = "exec";
 				ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-				Restart = "always";
+				Restart = "on-failure";
 			};
 		};
 
@@ -288,6 +289,7 @@ in
 		wayland.windowManager.hyprland = {
 			enable = true;
 			xwayland.enable = true;
+			package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
 			settings = {
 				"$mainMod" = "L_ALT";
@@ -300,10 +302,11 @@ in
 				exec-once = [
 					"firefox"
 					"mako"
-					"waybar"
 					"hypridle"
 					"hyprpaper"
 					"telegram-desktop"
+					"gnome-keyring-daemon"
+					"waybar"
 				];
 
 				env = [
@@ -409,14 +412,13 @@ in
 					"$mainMod SHIFT, 9, movetoworkspace, 9"
 					"$mainMod SHIFT, 0, movetoworkspace, 10"
 
-
 					"$mainMod SHIFT, h, movewindow, l"
 					"$mainMod SHIFT, l, movewindow, r"
 					"$mainMod SHIFT, k, movewindow, u"
 					"$mainMod SHIFT, j, movewindow, d"
 
-					"$mainMod ALT, h, moveactive, 50 0"
-					"$mainMod ALT, l, moveactive, -50 0"
+					"$mainMod ALT, h, moveactive, -50 0"
+					"$mainMod ALT, l, moveactive, 50 0"
 					"$mainMod ALT, k, moveactive, 0 -50"
 					"$mainMod ALT, j, moveactive, 0 50"
 
