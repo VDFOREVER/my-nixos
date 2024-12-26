@@ -7,5 +7,6 @@
 		./themes.nix
 		./vscode.nix
 		./firefox.nix
+		./nvim.nix
 	];
 }

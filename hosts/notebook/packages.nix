@@ -1,25 +1,24 @@
 { pkgs, ... }: {
 	nixpkgs.config.allowUnfree = true;
-	
+
 	environment.systemPackages = with pkgs; [
 		telegram-desktop
 		alacritty
 		obs-studio
 		mpv
 		nemo
-		vscode
 		pass
 		steam
 		prismlauncher
 		file-roller
 		transmission_4-gtk
 		filezilla
-		#wineWowPackages.waylandFull
+		wineWowPackages.waylandFull
 		baobab
+		vscode
+		kdePackages.kdenlive
 		brightnessctl
-		
-		python3
-		
+
 		fastfetch
 		wget
 		git

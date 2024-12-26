@@ -416,20 +416,20 @@ in
 					"$mainMod SHIFT, k, movewindow, u"
 					"$mainMod SHIFT, j, movewindow, d"
 
-					"$mainMod ALT, h, moveactive, -50 0"
-					"$mainMod ALT, l, moveactive, 50 0"
-					"$mainMod ALT, k, moveactive, 0 -50"
-					"$mainMod ALT, j, moveactive, 0 50"
-
-					"$mainMod CTRL, h, resizeactive,-50 0"
-					"$mainMod CTRL, l, resizeactive,50 0"
-					"$mainMod CTRL, k, resizeactive,0 -50"
-					"$mainMod CTRL, j, resizeactive,0 50"
-
 					"$mainMod, h, movefocus, l"
 					"$mainMod, l, movefocus, r"
 					"$mainMod, k, movefocus, u"
 					"$mainMod, j, movefocus, d"
+
+					"$mainMod CTRL, h, moveactive, -50 0"
+					"$mainMod CTRL, l, moveactive, 50 0"
+					"$mainMod CTRL, k, moveactive, 0 -50"
+					"$mainMod CTRL, j, moveactive, 0 50"
+
+					"$mainMod SUPER, h, resizeactive,-50 0"
+					"$mainMod SUPER, l, resizeactive,50 0"
+					"$mainMod SUPER, k, resizeactive,0 -50"
+					"$mainMod SUPER, j, resizeactive,0 50"
 				];
 
 				bindm = [

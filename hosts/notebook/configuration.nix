@@ -8,7 +8,8 @@
     singbox.enable = true;
     amdgpu.enable = true;
     gc.enable = true;
-    vm.enable = false;
+    vm.enable = true;
+    yggdrasil.enable = true;
 
     networking.networkmanager.enable = true;
     zramSwap.enable = true;
@@ -26,6 +27,7 @@
     services = {
         earlyoom.enable = true;
         gvfs.enable = true;
+        gnome.gnome-keyring.enable = true;
         pipewire = {
             enable = true;
             alsa.enable = true;
@@ -53,7 +55,7 @@
             };
         };
 	};
-
+    
     programs = {
         nix-ld.enable = true;
         gnupg.agent.enable = true;
@@ -69,7 +71,7 @@
         auto-optimise-store = true;
         experimental-features = ["nix-command" "flakes"];
     };
-    
+
     time.timeZone = "Europe/Moscow";
     networking.hostName = "nixos";
     i18n.defaultLocale = "en_US.UTF-8";

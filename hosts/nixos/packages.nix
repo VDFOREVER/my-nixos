@@ -1,10 +1,5 @@
 { pkgs, inputs, ... }: {
-	nixpkgs.config = {
-		allowUnfree = true;
-		permittedInsecurePackages = [
-			"olm-3.2.16"
-		];	
-	};
+	nixpkgs.config.allowUnfree = true;
 
 	environment.systemPackages = with pkgs; [
 		telegram-desktop
@@ -21,7 +16,7 @@
 		wineWowPackages.waylandFull
 		baobab
 		vscode
-		nheko
+		kdePackages.kdenlive
 
 		fastfetch
 		wget

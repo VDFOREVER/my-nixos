@@ -25,6 +25,7 @@
 	theming.enable = true;
 	git.enable = true;
 	fish.enable = true;
+	nvim.enable = true;
 
     programs.gpg.enable = true;
     services.gpg-agent = {

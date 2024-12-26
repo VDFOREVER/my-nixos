@@ -9,6 +9,7 @@
     amdgpu.enable = true;
     gc.enable = true;
     vm.enable = true;
+    yggdrasil.enable = true;
 
     networking.dhcpcd.enable = true;
     zramSwap.enable = true;
