@@ -9,7 +9,8 @@
     amdgpu.enable = true;
     gc.enable = true;
     vm.enable = true;
-    yggdrasil.enable = true;
+    yggdrasil.enable = false;
+    i2pd.enable = false;
 
     networking.dhcpcd.enable = true;
     zramSwap.enable = true;
@@ -70,8 +71,6 @@
     nix.settings = {
         auto-optimise-store = true;
         experimental-features = ["nix-command" "flakes"];
-        substituters = ["https://hyprland.cachix.org"];
-		trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
 
     time.timeZone = "Europe/Moscow";

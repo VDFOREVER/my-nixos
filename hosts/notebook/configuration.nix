@@ -8,8 +8,9 @@
     singbox.enable = true;
     amdgpu.enable = true;
     gc.enable = true;
-    vm.enable = true;
-    yggdrasil.enable = true;
+    vm.enable = false;
+    yggdrasil.enable = false;
+    i2pd.enable = false;
 
     networking.networkmanager.enable = true;
     zramSwap.enable = true;

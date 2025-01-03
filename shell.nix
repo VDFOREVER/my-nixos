@@ -3,22 +3,10 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     gcc
     gdb
-    bullet
     openssl
     zlib
     boost
-    glfw-wayland
-    opencv
     cmake
-    wayland
-    libxkbcommon
-    wayland-scanner
-    xorg.libX11
-    xorg.libXrandr
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    qt6.full
   ];
 
     packages = [
@@ -29,16 +17,7 @@ pkgs.mkShell {
 
   nativeBuildInputs = with pkgs; [ pkg-config ];
 
-  LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
-    wayland
-    libxkbcommon
-    wayland-scanner
-    xorg.libX11
-    xorg.libXrandr
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-  ]);
+  LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [ ]);
 
   shellHook = ''
       export CC=${pkgs.gcc}/bin/gcc

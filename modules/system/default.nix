@@ -5,5 +5,6 @@
 		./amd.nix
 		./singbox.nix
 		./yggdrasil.nix
+		./i2pd.nix
 	];
 }
