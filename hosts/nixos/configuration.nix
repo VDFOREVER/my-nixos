@@ -43,7 +43,6 @@
     };
 
 	boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
         tmp.useTmpfs = true;
         loader = {
             systemd-boot.enable = false;

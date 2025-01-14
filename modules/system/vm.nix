@@ -9,13 +9,12 @@ in
     };
 
     config = mkIf cfg.enable {
-        users.users.svd.extraGroups = [ "qemu-libvirtd" "libvirtd" "disk" ];
+        users.users.svd.extraGroups = [ "libvirtd" ];
         environment.systemPackages = with pkgs; [ virt-manager ];
 
         boot = {
             kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "modconf" ];
-            initrd.kernelModules = [ "amdgpu" ];    # возвращает видео после загрузки системы
-            extraModprobeConfig = "options vfio-pci ids=1002:67df,1002:aaf0";
+            kernelParams = [ "amd_iommu=on" "iommu=pt" ];
         };
 
         systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];

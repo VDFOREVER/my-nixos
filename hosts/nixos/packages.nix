@@ -13,11 +13,10 @@
 		file-roller
 		transmission_4-gtk
 		filezilla
-		wineWowPackages.waylandFull
 		baobab
 		vscode
 		kdePackages.kdenlive
-
+		
 		fastfetch
 		wget
 		git
