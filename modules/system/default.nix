@@ -6,5 +6,6 @@
 		./singbox.nix
 		./yggdrasil.nix
 		./i2pd.nix
+		./ssh.nix
 	];
 }

@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }: 
+let
+    user = "svd";
+    passHash = "$6$rEdBusDJyC3879uu$56M4FJdE5tNKTyFgef/2309ee1vFUuyNtHBElrkjsuUzL1BY4mcwW3YNIAAI1nFYNIipHm26S.28BYZLZH2dn/";
+in
+{
     imports = [
 	    ../../modules/system
 	    ./packages.nix
@@ -11,6 +16,7 @@
     vm.enable = true;
     yggdrasil.enable = false;
     i2pd.enable = false;
+    ssh.enable = true;
 
     networking.dhcpcd.enable = true;
     zramSwap.enable = true;
@@ -19,9 +25,10 @@
     programs.fish.enable = true;
 	users = {
 		defaultUserShell = pkgs.fish;
-		users.svd = {
+		users."${user}" = {
 			isNormalUser = true;
-			extraGroups = ["wheel" "input"];
+			extraGroups = ["wheel"];
+            hashedPassword = passHash;
 		};
 	};
 
@@ -45,17 +52,11 @@
 	boot = {
         tmp.useTmpfs = true;
         loader = {
-            systemd-boot.enable = false;
+            systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
-
-            grub = {
-                efiSupport = true;
-                device = "nodev";
-                useOSProber = true;
-            };
         };
 	};
-    
+
     programs = {
         nix-ld.enable = true;
         gnupg.agent.enable = true;

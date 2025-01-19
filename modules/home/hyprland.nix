@@ -322,8 +322,10 @@ in
 					kb_layout = "us,ru";
 					kb_options = "grp:caps_toggle";
 					follow_mouse = 1;
-					accel_profile = "flat";
-					sensitivity = -0.945;
+					
+					#accel_profile = "flat";
+					#sensitivity = -0.945;
+					sensitivity = 0.5;
 				};
 
 				general = {
