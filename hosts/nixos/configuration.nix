@@ -16,7 +16,7 @@ in
     vm.enable = true;
     yggdrasil.enable = false;
     i2pd.enable = false;
-    ssh.enable = true;
+    ssh.enable = false;
 
     networking.dhcpcd.enable = true;
     zramSwap.enable = true;

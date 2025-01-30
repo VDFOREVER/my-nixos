@@ -7,6 +7,8 @@ pkgs.mkShell {
     zlib
     boost
     cmake
+    clang-tools
+    ncurses
   ];
 
     packages = [

@@ -45,6 +45,7 @@ in
 			mako
 			libnotify
 			wl-clipboard
+			xdg-utils
 		];
 
 		services.mako = mkIf cfg.mako {
@@ -284,7 +285,6 @@ in
 				];
 			};
 		};
-
 
 		wayland.windowManager.hyprland = {
 			enable = true;
