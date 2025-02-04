@@ -22,6 +22,11 @@ in
     zramSwap.enable = true;
     documentation.nixos.enable = false;
 
+    environment.variables = {
+        MOZ_ENABLE_WAYLAND = "1";
+        NIXOS_OZONE_WL = "1";
+    };
+
     programs.fish.enable = true;
 	users = {
 		defaultUserShell = pkgs.fish;

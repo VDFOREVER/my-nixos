@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }: 
+let
+    user = "svd";
+    passHash = "$6$rEdBusDJyC3879uu$56M4FJdE5tNKTyFgef/2309ee1vFUuyNtHBElrkjsuUzL1BY4mcwW3YNIAAI1nFYNIipHm26S.28BYZLZH2dn/";
+in
+{
     imports = [
 	    ../../modules/system
 	    ./packages.nix
@@ -11,17 +16,24 @@
     vm.enable = false;
     yggdrasil.enable = false;
     i2pd.enable = false;
+    ssh.enable = false;
 
     networking.networkmanager.enable = true;
     zramSwap.enable = true;
     documentation.nixos.enable = false;
 
+    environment.variables = {
+        MOZ_ENABLE_WAYLAND = "1";
+        NIXOS_OZONE_WL = "1";
+    };
+
     programs.fish.enable = true;
 	users = {
 		defaultUserShell = pkgs.fish;
-		users.svd = {
+		users."${user}" = {
 			isNormalUser = true;
-			extraGroups = ["wheel" "input"];
+			extraGroups = ["wheel"];
+            hashedPassword = passHash;
 		};
 	};
 
@@ -43,20 +55,13 @@
     };
 
 	boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
         tmp.useTmpfs = true;
         loader = {
-            systemd-boot.enable = false;
+            systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
-
-            grub = {
-                efiSupport = true;
-                device = "nodev";
-                useOSProber = true;
-            };
         };
 	};
-    
+
     programs = {
         nix-ld.enable = true;
         gnupg.agent.enable = true;

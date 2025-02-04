@@ -91,7 +91,7 @@ in
             "libvirt/hooks/qemu.d/win10/prepare/begin/start.sh" = {
                 text = ''
                     #!/run/current-system/sw/bin/bash
-            
+
                     # Load variables we defined
                     source "/etc/libvirt/hooks/kvm.conf"
 
@@ -102,19 +102,20 @@ in
                     # Avoid race condition
                     # sleep 5
             
-                    # Unload NVIDIA kernel modules
-                    modprobe -r amdgpu
-            
                     # Unbind EFI Framebuffer
                     # echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
             
-
                     # Detach GPU devices from host
                     virsh nodedev-detach $VIRSH_GPU_VIDEO
                     virsh nodedev-detach $VIRSH_GPU_AUDIO
-            
+
+                    sleep 5
+
+                    # Unload NVIDIA kernel modules
+                    modprobe -r amdgpu            
+
                     # Load vfio module
-                    modprobe vfio-pci
+                    # modprobe vfio-pci
                 '';
                 mode = "0755";
             };
@@ -123,12 +124,11 @@ in
                 text = ''
                     #!/run/current-system/sw/bin/bash
 
-            
                     # Load variables we defined
                     source "/etc/libvirt/hooks/kvm.conf"
             
                     # Unload vfio module
-                    modprobe -r vfio-pci
+                    # modprobe -r vfio-pci
             
                     # Attach GPU devices from host
                     virsh nodedev-reattach $VIRSH_GPU_VIDEO
