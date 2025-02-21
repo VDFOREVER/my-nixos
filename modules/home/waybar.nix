@@ -20,8 +20,7 @@ in
 					position = "bottom";
 					margin-bottom = 5;
 					spacing = 0;
-					height =  27;
-					width = 900;
+					height =  15;
 
 					modules-left = ["custom/weather" "custom/pick" "custom/lock" "custom/poweroff"];
 					modules-center = ["hyprland/workspaces"];
@@ -92,9 +91,9 @@ in
 			style = 
 		''
 	* {
-		font-family: JetBrainsMono, SymbolsNerdFont;
+		font-family: 'Terminus (TTF)', SymbolsNerdFont;
 		font-weight: bold;
-		font-size: 13px;
+		font-size: 14px;
 		min-height: 0;
 	}
 
@@ -102,14 +101,13 @@ in
 		background-color: @bg;
 		transition-property: background-color;
 		transition-duration: .5s;
-		border-radius: 5;
+		border-radius: 0;
 	}
 
-	@define-color bg #272a34;
-	@define-color fg #f9f9f9;
-	@define-color black #23252e;
-	@define-color green #2BE491;
-	@define-color gr #363749;
+	@define-color bg #282828;
+	@define-color fg #E6D8B1; 
+	@define-color black #242424;
+	@define-color green #d65d0e;
 
 	#custom-weather {
 		background: @black;

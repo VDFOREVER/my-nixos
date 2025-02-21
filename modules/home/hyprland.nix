@@ -53,17 +53,17 @@ in
 			layer = "overlay";
 			ignoreTimeout = true;
 			defaultTimeout = 4000;
+			font = "Terminus (TTF)";
 			padding = "7";
-			backgroundColor = "#2e3440";
-			borderColor = "#88c0d0";
-			borderRadius = 15;
+			backgroundColor = "#282828";
+			borderColor = "#d65d0e";
+			borderRadius = 0;
 		};
 
 		programs.alacritty = mkIf cfg.alacritty {
 			enable = true;
 			settings = {
 				window = {
-					opacity = 0.8;
 					padding = {
 						x = 15;
 						y = 15;
@@ -71,46 +71,43 @@ in
 				};
 
 				font = {
-					size = 10.0;
+					size = 12.0;
+					normal.family = "Terminus (TTF)";
+				};
+
+				colors = {
+					primary = {
+						background = "#282828";
+						foreground = "#ebdbb2";
+					};
+
 					normal = {
-						family = "JetBrains Mono";
-						style = "Bold";
+						black   = "#282828";
+						red     = "#cc241d";
+						green   = "#98971a";
+						yellow  = "#d79921";
+						blue    = "#458588";
+						magenta = "#b16286";
+						cyan    = "#689d6a";
+						white   = "#a89984";
+					};
+
+					cursor = {
+						cursor = "CellForeground";
+						text = "CellBackground";
+					};
+
+					bright = {
+						black   = "#928374";
+						red     = "#fb4934";
+						green   = "#b8bb26";
+						yellow  = "#fabd2f";
+						blue    = "#83a598";
+						magenta = "#d3869b";
+						cyan    = "#8ec07c";
+						white   = "#ebdbb2";
 					};
 				};
-
-			colors = {
-				primary = {
-					background = "#272a34";
-					foreground = "#f9f9f9";
-				};
-
-				normal = {
-					black = "#3b4252";
-					blue = "#81a1c1";
-					cyan = "#88c0d0";
-					green = "#a3be8c";
-					magenta = "#b48ead";
-					red = "#bf616a";
-					white = "#e5e9f0";
-					yellow = "#ebcb8b";
-				};
-
-				cursor = {
-					cursor = "CellForeground";
-					text = "CellBackground";
-				};
-
-				bright = {
-					black = "#4c566a";
-					blue = "#81a1c1";
-					cyan = "#8fbcbb";
-					green = "#a3be8c";
-					magenta = "#b48ead";
-					red = "#bf616a";
-					white = "#eceff4";
-					yellow = "#ebcb8b";
-				};
-			};
 			};
 		};
 
@@ -130,18 +127,20 @@ in
 
 			style = ''
 				*{
-					font-family: JetBrainsMono;
-					font-size: 13px;
+					font-family: 'Terminus (TTF)';
+					font-size: 14px;
 				}
-				@define-color bg #272a34;
+				@define-color bg #282828;
 				@define-color fg #f9f9f9;
 				@define-color green #2be491;
-				@define-color gr #363749;
-				@define-color black #23252e;
+				@define-color gr #4A4841;
+				@define-color black #4A4841;
+				@define-color bgb #d65d0e
 
 				window {
 					background-color: @bg;
 					border-radius: 6px;
+					border: 2px solid @bgb;
 					color: @bg;
 				}
 				#input {
@@ -190,8 +189,8 @@ in
 			settings = {
 				splash = false;
 
-				preload = "~/nix/other/wallpaper.png";
-				wallpaper = ",~/nix/other/wallpaper.png";
+				preload = "~/nix/other/wp.png";
+				wallpaper = ",~/nix/other/wp.png";
 			};
 		};
 
@@ -217,7 +216,7 @@ in
 			settings = {
 				background = [
 					{
-						path = "~/nix/other/wallpaper.png";
+						path = "~/nix/other/wp.png";
 						color = "rgba(25, 20, 20, 1.0)";
 						blur_passes = 2;
 						blur_size = 2;
@@ -234,7 +233,7 @@ in
 						text = "Hi <span foreground='##1692D0'>$USER</span> :)";
 						color = "rgba(200, 200, 200, 1.0)";
 						font_size = 25;
-						font_family = "JetBrainsMono";
+						font_family = "Terminus (TTF)";
 						
 						position = "0, 20";
 						halign = "center";
@@ -245,7 +244,7 @@ in
 						text = "cmd[update:1] echo $(date +\"%I:%M %p\")";
 						color = "rgba(200, 200, 200, 1.0)";
 						font_size = 25;
-						font_family = "JetBrains Mono Bold";
+						font_family = "Terminus (TTF) Bold";
 
 						position = "0, 250";
 						halign = "center";
@@ -286,7 +285,7 @@ in
 			};
 		};
 
-		wayland.windowManager.hyprland = {
+	wayland.windowManager.hyprland = {
 			enable = true;
 			xwayland.enable = true;
 
@@ -323,54 +322,28 @@ in
 					kb_options = "grp:caps_toggle";
 					follow_mouse = 1;
 					
-					#accel_profile = "flat";
-					#sensitivity = -0.945;
 					sensitivity = 0.5;
 				};
 
 				general = {
 					gaps_in = 5;
 					gaps_out = 10;
-					border_size = 1;
-					"col.active_border" = "rgba(5e6574ff)";
-					"col.inactive_border" = "rgba(272a34ff)";
+					border_size = 2;
+					"col.active_border" = "rgba(d65d0eff)";
+					"col.inactive_border" = "rgba(3c3836ff)";
 
 					layout = "dwindle";
 					allow_tearing = false;
-					no_border_on_floating = true;
+					no_border_on_floating = false;
 				};
 
 				decoration = {
-					rounding = 5;
-
-					blur = {
-						enabled = true;
-						size = 5;
-						passes = 1;
-					};
-
-					shadow = {
-						enabled = true;
-						range = 4;
-						render_power = 3;
-						color = "rgba(1a1a1aee)";
-					};
+					rounding = 0;
+					blur.enabled = false;
+					shadow.enabled = false;
 				};
-
-				animations = {
-					enabled = true;
-					bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
-					animation = [
-						"windows,     1, 5,  myBezier"
-						"windowsOut,  1, 5,  default, popin 80%"
-						"border,      1, 10, default"
-						"borderangle, 1, 8,  default"
-						"fade,        1, 5,  default"
-						"workspaces,  1, 4,  default"
-					];
-				};
-
+		
+				animations.enabled = false;
 				dwindle = {
 					pseudotile = true;
 					preserve_split = true;

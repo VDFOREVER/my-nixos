@@ -19,8 +19,13 @@ in
     ssh.enable = false;
 
     networking.dhcpcd.enable = true;
-    zramSwap.enable = true;
     documentation.nixos.enable = false;
+
+    zramSwap = {
+        enable = true;
+        algorithm = "lz4";
+	    memoryPercent = 100;
+    };
 
     environment.variables = {
         MOZ_ENABLE_WAYLAND = "1";

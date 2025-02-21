@@ -10,28 +10,28 @@ in
 
     config = mkIf cfg.enable {
         home.pointerCursor = {
-            package = pkgs.capitaine-cursors;
-            name = "capitaine-cursors";
+            package = pkgs.capitaine-cursors-themed;
+            name = "Capitaine Cursors (Gruvbox)";
             size = 24;
             x11.enable = true;
             gtk.enable = true;
         };
-
         gtk = {
             enable = true;
             iconTheme = {
-                name = "Flat-Remix-Black-Dark";
-                package = pkgs.flat-remix-icon-theme;
+                package = pkgs.gruvbox-plus-icons;
+                name = "Gruvbox-Plus-Dark";
             };
             theme = {
-                package = pkgs.flat-remix-gtk;
-                name = "Flat-Remix-GTK-Grey-Dark";
+                package = pkgs.gruvbox-gtk-theme.override { tweakVariants = [ "medium" ]; };
+                name = "Gruvbox-Dark-Medium";
             };
             cursorTheme = {
-                package = pkgs.capitaine-cursors;
-                name = "capitaine-cursors";
+                package = pkgs.capitaine-cursors-themed;
+                name = "Capitaine Cursors (Gruvbox)";
             };
-            font.name = "JetBrainsMono";
+            font.name = "Terminus (TTF)";
+            font.size = 12;
         };
 
         qt = {

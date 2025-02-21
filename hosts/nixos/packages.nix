@@ -16,7 +16,7 @@
 		baobab
 		vscode
 		kdePackages.kdenlive
-		
+
 		fastfetch
 		wget
 		git
@@ -30,6 +30,7 @@
 		jetbrains-mono
 		noto-fonts
 		noto-fonts-emoji
+		terminus_font_ttf
 		(nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 	];
 }

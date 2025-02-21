@@ -18,7 +18,7 @@ in
                 twxs.cmake
                 pkief.material-icon-theme
                 bbenoist.nix
-                enkia.tokyo-night
+                jdinhlife.gruvbox
             ]);
         };
     };

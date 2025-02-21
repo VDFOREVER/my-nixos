@@ -7,8 +7,9 @@ pkgs.mkShell {
     zlib
     boost
     cmake
-    clang-tools
-    ncurses
+    libpqxx
+    postgresql
+    imagemagick
   ];
 
     packages = [

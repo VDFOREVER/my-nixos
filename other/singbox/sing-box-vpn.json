@@ -55,7 +55,7 @@
         },
         {
           "process_path_regex": [
-            "^.*(firefox-bin|firefox|electron)$"
+            "^.*(firefox-bin|firefox)$"
           ],
           "outbound": "proxy"
         },
